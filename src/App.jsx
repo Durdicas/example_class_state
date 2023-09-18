@@ -1,32 +1,26 @@
-import { Component } from 'react'
 import './App.css'
-import GradBroj from './GradBroj'
+import { Component } from 'react'
+import { UserClass, UserFunction, UserChildren } from './user'
 
-export default class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      count: 0,
-      grad: "Zagreb"
-    }
-    // this.uvecaj = this.uvecaj.bind(this)
+const users = [
+  { name: 'Ivan', years: 30, },
+  { name: 'Marko', years: 35 },
+  { name: 'Ana', years: 25 },
+];
+
+class App extends Component {
+  render() {
+    return (
+      <>
+        <h1>State</h1>
+        <UserClass name={users[0].name} years={users[0].years} />
+        <UserFunction name={users[1].name} years={users[1].years} />
+        <UserChildren name={users[2].name} years={users[2].years}>
+          a hobi mi je programiranje...
+        </UserChildren>
+      </>
+    )
   }
- 
- uvecaj = () => {
- this.setState({count: this.state.count + 1})
- }
- zamjena = () => {
-  this.setState({grad: this.state.grad === "Zagreb" ? "Osijek" : "Zagreb"})
- }
- render() {
-  return (
-    <>
-      <p>count: {this.state.count}</p>
-      <button onClick={this.uvecaj}>Uvecaj za 1</button>
-      <button onClick={this.zamjena}>Zamjena</button>
-      <GradBroj grad={this.state.grad} broj={this.state.count}/>
-    </>
-  )
- }
 }
 
+export default App
