@@ -1,7 +1,7 @@
 import './App.css'
-import { Component } from 'react'
+//import { Component } from 'react'
 import { UserClass, UserFunction, UserChildren } from './user'
-import  Komponents  from './Komponents'
+//import  Komponents  from './Komponents'
 import { useState } from 'react'
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
     }
 
     const handleChangeName = event => {
-      console.log("handleChangeName", event.target.value)
+      //console.log("handleChangeName", event.target.value)
       const newUsers = [...users]
       newUsers[1].name = event.target.value
       setUsers(newUsers)
@@ -37,12 +37,12 @@ function App() {
     return (
       <>
         <h1>State</h1>
-        //<UserClass name={users[0].name} years={users[0].years} />
+        <UserClass name={users[0].name} years={users[0].years} />
         <UserFunction name={users[1].name} years={users[1].years} changeName={handleChangeName}/>
         <UserChildren name={users[2].name} years={users[2].years}>
-          a hobi mi je programiranje...
+          {tekst}
         </UserChildren>
-        <Komponents uvecaj={uvecajGodine} />
+        <button onClick={uvecajGodine}> Uvecaj godine</button>
       </>
     )
   }
